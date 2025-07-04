@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f6f6f6;
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        height: 100vh;
+      }
+      .nav-link {
+        color: #262338;
+      }
+
+      .nav-link {
+        color: #262338;
+        position: relative;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background-color: #262586;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover {
+        color: #262586;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .btn:hover {
+        background-color: #262486;
+        color: white !important;
+      }
+      .form-label {
+        font-family: poppins;
+      }
+      .form-check-label {
+        font-family: poppins;
+      }
+
+      .social-media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8px;
+        margin-bottom: 20px;
+        gap: 12px;
+        color: #262338;
+        font-family: "Poppins", sans-serif;
+      }
+      .social-media a img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        transition: transform 0.2s ease;
+      }
+      .social-media a img:hover {
+        transform: scale(1.1);
+      }
+
+      .social-media a {
+        text-decoration: none;
+      }
+
+      .footer-link {
+        display: inline-block;
+        color: #262338;
+        text-decoration: none;
+        margin-top: 20px;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      .footer-link:hover {
+        color: #262586;
+        font-weight: 600;
+      }
+      .mega-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        width: 600px;
+        padding: 20px;
+        display: none;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        display: none;
+        flex-wrap: wrap;
+        gap: 40px;
+        z-index: 999;
+      }
+
+      .mega-column a:hover {
+        color: #262586;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        padding-left: 5px;
+      }
+
+      .nav-item:hover .mega-dropdown {
+        display: flex;
+      }
+
+      .mega-column {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .mega-column h4 {
+        font-size: 16px;
+        color: #262586;
+        margin-bottom: 10px;
+        /* font-family: poppins; */
+      }
+
+      .mega-column a {
+        display: block;
+        padding: 6px 0;
+        color: #262338;
+        text-decoration: none;
+        /* font-family: poppins; */
+      }
+
+      .mega-column a:hover {
+        color: #262586;
+      }
+      .custom-purple-btn {
+        color: #262586;
+        border: 1px solid #262586;
+        padding: 6px 12px;
+        font-size: 16px;
+        border-radius: 4px;
+        background-color: transparent;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .custom-purple-btn:hover {
+        background-color: #262586;
+        color: white;
+        text-decoration: none;
+      }
+      .image img {
+        margin: 0px 20px;
+        /* width: 100%; */
+        width: 1470px;
+        height: 380px;
+        object-fit: cover;
+        margin-top: 50px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg mt-0 py-0"
+      style="
+        background-color: #fcfcfc;
+        box-shadow: 0px 4px 4px rgba(154, 200, 215, 0.1);
+        font-size: 16px;
+      "
+    >
+      <div class="container-fluid">
+        <a href="Home.html">
+          <img src="image/ttt.svg" alt="" style="height: 96px; width: 260px" />
+        </a>
+        <div
+          class="collapse navbar-collapse"
+          id="navbarSupportedContent"
+          style="margin-left: 20px"
+        >
+          <ul
+            class="navbar-nav me-auto mb-2 mb-lg-0"
+            style="gap: 30px; font-size: 16px"
+          >
+            <li class="nav-item">
+              <a class="nav-link" href="AboutUs.html">About Us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#">Category</a>
+              <div class="mega-dropdown">
+                <div class="mega-column">
+                  <h4>Two Wheelers</h4>
+                  <a href="./Rental/scooterRental.html">Scooter</a>
+                  <a href="./Rental/bikeRental.html">Bike</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Four Wheelers</h4>
+                  <a href="./Rental/carRental.html">Car</a>
+                  <a href="./Rental/scorpioRental.html">Scorpio</a>
+                  <a href="./Rental/hiaceRental.html">Hiace</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./Rental/bikeRental.html">Rental</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="payment.html">Booking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="FAQs.html">FAQs</a>
+            </li>
+            
+          </ul>
+          <form class="d-flex" role="search" style="margin-right: 60px">
+            <!-- <input class="form-control me-1 custom-width" type="search" placeholder="which vehicle do you want?" aria-label="Search"> -->
+            <input
+              class="form-control me-1"
+              style="width: 250px"
+              type="search"
+              placeholder="which vehicle do you want?"
+              aria-label="Search"
+            />
+
+            <a href="signup.html" class="btn custom-purple-btn">Sign Up</a>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <section style="padding: 40px 0px 0px 0px">
+      <div class="container">
+        <div class="row g-5">
+          <!-- Left Column: Info & Image -->
+          <div class="col-md-6 mb-4">
+            <div>
+              <img
+                src="image/login.png" alt="" style="width: 600px; height: 600px;"/>
+            </div>
+           
+          </div>
+
+          <!-- Right Column: Form -->
+          <div class="col-md-6">
+            <h2 style="text-align: center; color: #262586; font-family: Roboto;">"Welcome Back!"</h2>
+      <form method="POST" class="container" style=" padding: 40px; border: 1.5px solid #d0d5dd; max-width: 600px; margin: 40px auto; border-radius: 4px; font-family: Roboto; background-color: #fff;" >
+        <div class="mb-3">
+          <label for="Email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="Email" />
+        </div>
+        <div class="mb-3">
+          <label for="Password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="Password" />
+        </div>
+        <div class="mb-3 form-check" style="display: flex; justify-content: space-between; margin-top: 20px;">
+          <div>
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1">
+            <a href="terms.html" style="text-decoration: none; color: #262338">Remember me
+            </a>
+          </label>
+          </div>
+          <div > 
+            <a href="forgetPassword.html" style="text-decoration: none; color: #262586; font-family: poppins;">Forgot Password?</a>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn"
+          style="
+            background-color: #262586;
+            color: white;
+            font-family: poppins;
+            width: 140px;
+            height: 40px;
+            font-size: 16px;
+          "
+        >
+          Submit
+        </button>
+        <div class="text-center" style="margin-top: 50px;">
+          <p style="margin-top: 50px; font-family: poppins; color: #262338">
+            Don't have an Account?
+            <a
+              style="text-decoration: none; font-family: poppins;"
+              href="signup.html"
+              ><span style="color: #262586; font-weight: 600">SignUp</span></a
+            >
+          </p>
+        </div>
+      </form>
+          </div>
+        </div>
+     
+
+    </section>
+    <footer
+      style="height: 370px; background-color: #fcfcfc; font-family: Roboto"
+    >
+      <div class="d-flex align-items-center">
+        <div
+          class="container d-flex justify-content-between align-items-center"
+        >
+          <a href="Home.html">
+            <img
+              src="image/ttt.svg"
+              alt=""
+              style="width: 260px; margin-top: 80px"
+          /></a>
+          <!-- <a class="navbar-brand fw-bold fs-1 text-white" href="#">LOGO</a> -->
+          <div
+            class="d-flex"
+            style="gap: 400px; margin-top: 50px; color: #262338"
+          >
+            <div class="one" style="color: #262338">
+              <div style="font-weight: bold">Additional Links</div>
+              <p style="margin-top: 40px; color: #262338">
+                9863482905,9862090518
+              </p>
+              <p style="color: #262338; margin-top: 20px">
+                yatra9980@gmail.com
+              </p>
+              <p style="color: #262338; margin-top: 20px">kathmandu,Nepal</p>
+            </div>
+            <div class="two" style="margin-right: 140px; color: #262338">
+              <div style="font-weight: bold">Additional Links</div>
+              <a href="AboutUs.html" class="footer-link">About Us</a><br />
+              <a href="./Rental/bikeRental.html" class="footer-link">Rental</a><br />
+              <a href="Contact.html" class="footer-link">Contact Us</a><br />
+              <a href="FAQs.html" class="footer-link">FAQs</a><br />
+              <a href="terms.html" class="footer-link">Terms And Conditions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="social-media">
+        <h4
+          style="
+            text-align: center;
+            margin-top: 8px;
+            color: #262338;
+            margin-bottom: 20px;
+          "
+        >
+          Social Media:
+          <a href="https://www.facebook.com/profile.php?id=61575751437309">
+            <img src="image/facebook.svg" alt="" />
+          </a>
+          <a href="https://www.instagram.com/yatrahamisanga/">
+            <img src="image/instagram.svg" alt="" />
+          </a>
+          <a href="https://www.youtube.com/channel/UCb9BBhA2IZX2fc6NAf4dIAA">
+            <img src="image/youtube.svg" alt="" />
+          </a>
+        </h4>
+      </div>
+    </footer>
+  </body>
+</html>
