@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apache Bike4</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+      body{
+        background-color: #f6f6f6;
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        height: 100vh;
+      }
+
+      .nav-link {
+        color: #262338;
+        position: relative;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background-color: #262586;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-link:hover{
+        color: #262586; 
+      }
+
+      .btn:hover {
+        background-color: #262486;
+        color: white !important;
+      }
+      .nav-link{
+        color: #262338 ;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        background-color: rgba(1, 1, 1,25% ); 
+        filter: brightness(70%);
+      }
+      .text-box {
+        position: absolute;
+        top: 140px;
+        left: 55px;
+        padding: 40px;
+        box-sizing: border-box;
+        color:white;
+        width: 600px;
+        
+      }
+
+      .text-box h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: white; 
+        font-weight: bolder;
+        font-family: roboto;
+      }
+
+      .text-box p {
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: medium;
+        font-family: poppins;
+        letter-spacing: 1px; 
+        line-height: 30px;
+        text-align: justify;
+      }
+      .containers{
+        display: flex;
+        gap:100px;
+        /* margin-top: 50px; */
+        background-color: rgba(141, 192, 201, 0.1); 
+        height: 450px;
+      }
+
+      .img img{
+        height:380px;
+      }
+      .see-more-btn {
+  border: none;
+  background-color: rgba(229, 239, 242, 0.4); 
+  color: #262586;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  cursor: pointer;
+  padding: 5px 0;
+  overflow: hidden;
+}
+
+
+      .see-more-btn::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background-color: #262586;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+
+      .see-more-btn:hover::after {
+        transform: scaleX(1);
+      }
+
+
+      .book-now-btn {
+        margin-left: 120px;
+        margin-top: 20px;
+        border: none;
+        color: #f6f6f6;
+        background-color: #02005F;
+        font-size: 16px;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        cursor: pointer;
+        padding: 5px 0;
+        overflow: hidden;
+      }
+
+
+      .book-now-btn::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background-color: #f6f6f6;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .book-now-btn:hover::after {
+        transform: scaleX(1);
+      }
+      .social-media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8px;
+        margin-bottom: 10px;
+        gap: 12px;
+        color: #262338;
+        font-family: 'Poppins', sans-serif;
+      }
+      .social-media a img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        transition: transform 0.2s ease;
+      }
+      .social-media a img:hover {
+        transform: scale(1.1);
+      }
+
+      .social-media a {
+        text-decoration: none; 
+      }
+
+      .btn:hover {
+        background-color: #1b1b75;
+      }
+
+      .footer-link {
+        display: inline-block;
+        color: #262338;
+        text-decoration: none;
+        margin-top: 20px;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      .footer-link:hover{
+        color:#262586;
+        font-weight: 600;
+      }
+
+      .mega-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      width: 600px;
+      padding: 20px;
+      display: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      display: none;
+      flex-wrap: wrap;
+      gap: 40px;
+      z-index: 999;
+    }
+
+    .mega-column a:hover {
+      color: #262586;
+      background-color: #f5f5f5; 
+      border-radius: 4px;
+      padding-left: 5px;
+    }
+
+    .nav-item:hover .mega-dropdown {
+      display: flex;
+    }
+
+    .mega-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .mega-column h4 {
+      font-size: 16px;
+      color: #262586;
+      margin-bottom: 10px;
+      
+    }
+
+    .mega-column a {
+      display: block;
+      padding: 6px 0;
+      color: #262338;
+      text-decoration: none;
+    }
+
+    .mega-column a:hover {
+      color: #262586;
+    }
+    .custom-purple-btn {
+      color: #262586;
+      border: 1px solid #262586;
+      padding: 6px 12px;
+      font-size: 16px;
+      border-radius: 4px;
+      background-color: transparent;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .custom-purple-btn:hover {
+        background-color: #262586;
+        color: white;
+        text-decoration: none;
+    }
+
+    .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    }
+
+    .main-section {
+    display: flex;
+    gap: 40px;
+    }
+
+    .image-section img {
+    width: 520px;
+    border-radius: 10px;
+    margin: 15px 0px 15px 20px;
+    }
+
+    .details-section {
+    margin-top: 15px;
+    }
+
+    .details-section h2 {
+    color: #002366;
+    margin-bottom: 20px;
+    }
+
+    .ones, .features {
+    margin-bottom: 20px;
+    }
+
+    .images{
+      width: 100%;
+        height: 280px;
+        object-fit: cover;
+        background-color: rgba(1, 1, 1,25% ); 
+        filter: brightness(70%);
+    }
+
+    .text-box {
+        position: absolute;
+        top: 800px;
+        left: 300px;
+        padding: 40px;
+        box-sizing: border-box;
+        color:white;
+        width: 600px;
+        display: flex;
+        justify-content: space-between;
+        justify-content: space-around;
+        gap: 140px;
+      }
+      .text-box1 {
+        position: absolute;
+        top: 98px;
+        left: 3px;
+        padding: 40px;
+        box-sizing: border-box;
+        color:white;
+        width: 600px;
+        display: flex;
+        justify-content: space-between;
+        justify-content: space-around;
+        gap: 140px;
+      }
+      .tops{
+        margin-left: 210px;
+        margin-top: 25px;
+      }
+      .btn:hover{
+        color: #262586;
+        background-color: white;
+      }
+
+      .carousel {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .reviews {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .review {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      height: 140px;
+      transition: opacity 1s ease;
+    }
+
+    .review.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .stars {
+      color: #fbc02d;
+      font-size: 1.2em;
+    }
+
+    .review-title {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-top: 10px;
+      color: #161616;
+      font-family: poppins;
+    }
+
+    .review-text {
+      margin-top: 10px;
+      color: 262338;
+      font-family: poppins;
+    }
+    .btn:hover {
+        background-color: #262486;
+        color: white !important;
+      }
+    </style>
+  </head>
+  <body style="font-family: Roboto">
+   <nav
+      class="navbar navbar-expand-lg mt-0 py-0"
+      style="
+        background-color: #fcfcfc;
+        box-shadow: 0px 4px 4px rgba(154, 200, 215, 0.1);
+        font-size: 16px;
+      "
+    >
+      <div class="container-fluid">
+        <a href="../../Home.html">
+          <img src="../../image/ttt.svg" alt="" style="height: 96px; width: 260px" />
+        </a>
+        <div
+          class="collapse navbar-collapse"
+          id="navbarSupportedContent"
+          style="margin-left: 20px"
+        >
+          <ul
+            class="navbar-nav me-auto mb-2 mb-lg-0"
+            style="gap: 30px; font-size: 16px"
+          >
+            <li class="nav-item">
+              <a class="nav-link" href="../../AboutUs.html">About Us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#">Category</a>
+              <div class="mega-dropdown">
+                <div class="mega-column">
+                  <h4>Two Wheelers</h4>
+                  <a href="../.././Rental/scooterRental.html">Scooter</a>
+                  <a href="../.././Rental/bikeRental.html">Bike</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Four Wheelers</h4>
+                  <a href="../.././Rental/carRental.html">Car</a>
+                  <a href="../.././Rental/scorpioRental.html">Scorpio</a>
+                  <a href="../.././Rental/hiaceRental.html">Hiace</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="../.././Rental/bikeRental.html">Rental</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../payment.html">Booking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../FAQs.html">FAQs</a>
+            </li>
+            
+          </ul>
+          <form class="d-flex" role="search" style="margin-right: 60px">
+            <!-- <input class="form-control me-1 custom-width" type="search" placeholder="which vehicle do you want?" aria-label="Search"> -->
+            <input
+              class="form-control me-1"
+              style="width: 250px"
+              type="search"
+              placeholder="which vehicle do you want?"
+              aria-label="Search"
+            />
+
+            <a href="../../signup.html" class="btn custom-purple-btn">Sign Up</a>
+          </form>
+        </div>
+      </div>
+    </nav>
+    
+    <section style="margin-top: 50px;margin-bottom: 50px;">
+        <div class="container">
+          <div class="main-section">
+            <div class="image-section">
+              <img src="../../image/BikeImg/Apache-4.png" alt="bike" style="height: 500px;">
+            </div>
+            <div class="details-section">
+              <h2 style="color: #262586">Bike Detail</h2>
+
+              <div class="ones">
+                <h3>Description:</h3>
+                <p style="text-align: justify;margin-right: 20px;font-family: poppins;letter-spacing: 0.5px;line-height: 24px;word-spacing: 0.5px;color: #262338;">For performance enthusiasts seeking speed, style, and precise handling, the TVS Apache is a well-liked line of fast motorbikes. Each model in the Apache line, which was created by TVS Motor Company, offers cutting-edge features and aggressive style.Apache bikes are well-known for their strong engines, agile braking systems, and crisp aerodynamics. They provide an exhilarating riding experience on highways and in urban traffic. Race-inspired features like Glide Through Traffic (GTT), Race Tuned Fuel Injection (RT-Fi), and SmartXonnect digital displays make the RTR series especially popular. Young riders and racing aficionados seeking a combination between performance, technology, and price may find the Apache appealing.</p>
+              </div>
+
+              <div class="features">
+                <h3 style="color: #262338;">Features:</h3>
+                <ul style="color: #262338;font-family: poppins;letter-spacing: 0.5px;line-height: 24px;word-spacing: 0.5px;">
+                    <li>Engine Capacity (cc): 159.7cc</li>
+                    <li>Mileage: 45-50 km/l </li>
+                    <li>Fuel Consumption: ~0.020-0.022 liters/km (approximately)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+            <div class="container" style="margin-top: 20px;">
+              <img src="../../image/travel.jpeg" alt="" class="images">
+            <div class="text-box">
+              <div class="mb-3">
+          <label for="Booked Date" class="form-label">Booked Date</label>
+          <input type="date" class="form-control" id="Booked Date" style="width: 350px;"/>
+        </div>
+        <div class="mb-3">
+          <label for="Return Date" class="form-label">Return Date</label>
+          <input type="date" class="form-control" id="Return Date" style="width: 350px;" />
+        </div>
+        <div>
+          <div class="text-box1">
+              <div class="mb-3">
+          <label for="Amount" class="form-label">Amount</label>
+          <input type="text" class="form-control" id="Amount" style="width: 350px;"/>
+        </div>
+        <div class="mb-3">
+           <div class="tops">
+            <a href="../../payment.html" type="submit" class="btn" style=" background-color: #262586; color: white; font-family: poppins; width: 140px; height: 40px; font-size: 16px;">Booking</a>
+            </div>      
+        </div>
+            </div>
+            </div>
+          
+          
+        </div>
+        <div>
+      <h2 style="margin-top: 40px; margin-bottom: 40px; color: #161616; font-family: roboto;"><span style="color:#262586 ;">Rating</span> by our previous <span style="color:#262586 ;">customers</span></h2>
+        </div>
+      <div>
+        <div class="carousel">
+          <div class="reviews">
+    <div class="review active">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <div class="review-title">Excellent Experience!</div>
+      <div class="review-text">
+        I had a fantastic experience with Yatra Hami Sanga. The booking process was easy and the car was in great condition. Highly recommended!
+      </div>
+    </div>
+
+    <div class="review">
+      <div class="stars">⭐⭐⭐⭐</div>
+      <div class="review-title">Great Service </div>
+      <div class="review-text">
+        Yatra Hami Sanga made it easy to rent a car for my weekend trip. The driver was professional and the ride was comfortable. 
+      </div>
+    </div>
+
+    <div class="review">
+      <div class="stars">⭐⭐⭐</div>
+      <div class="review-title">Needs Improvement</div>
+      <div class="review-text">
+        Yatra Hami Sanga has potential, but my experience wasn't great. The driver was late and the car's AC wasn't working. Customer care took too long to respond.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const reviews = document.querySelectorAll('.review');
+  let current = 0;
+
+  setInterval(() => {
+    reviews[current].classList.remove('active');
+    current = (current + 1) % reviews.length;
+    reviews[current].classList.add('active');
+  }, 5000); // 5 sec ko lagi ho
+</script>
+      </div>
+        <div style="margin-top: 40px;">
+          <h2>Some More Variations</h2>
+          <div class="row justify-content-between mt-5">
+    <div class="col-md mx-2 mb-4">
+      <div class="card h-100">
+        <img src="../../image/BikeImg/Apache-2.avif" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title text-center">Apache</h5>
+          <p class="card-text" style="text-align: center;" >Apache's design and innovation made it a global icon of stylish, effortless urban mobility.</p>
+          <a href="Apache2.html" class="btn btn-primary" style="margin-left: 28px;">Click Here</a>
+        </div>
+      </div> 
+    </div>
+    <div class="col-md mx-2 mb-4">
+      <div class="card h-100">
+        <img src="../../image/BikeImg/Apache-3.png "class="card-img-top" alt="..." style="height: 127px;">
+        <div class="card-body">
+          <h5 class="card-title text-center">Apache</h5>
+          <p class="card-text" style="text-align: center;" >Apache's design and innovation made it a global icon of stylish, effortless urban mobility.</p>
+          <a href="Apache3.html" class="btn btn-primary" style="margin-left: 28px;">Click Here</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md mx-2 mb-4">
+      <div class="card h-100">
+        <img src="../../image/BikeImg/Apache-1.png" class="card-img-top" alt="..." style="height: 125px;">
+        <div class="card-body">
+          <h5 class="card-title text-center">Apache</h5>
+          <p class="card-text" style="text-align: center;" >Apache's design and innovation made it a global icon of stylish, effortless urban mobility.</p>
+          <a href="Apache.html" class="btn btn-primary" style="margin-left: 28px;">Click Here</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md mx-2 mb-4">
+      <div class="card h-100">
+        <img src="../../image/BikeImg/Apache-5.jpg" class="card-img-top" alt="..." style="height: 125px;" width="1225px;">
+        <div class="card-body">
+          <h5 class="card-title text-center">Apache</h5>
+          <p class="card-text" style="text-align: center;" >Apache's design and innovation made it a global icon of stylish, effortless urban mobility.</p>
+          <a href="Apache5.html" class="btn btn-primary" style="margin-left: 28px;">Click Here</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md mx-2 mb-4">
+      <div class="card h-100">
+        <img src="../../image/BikeImg/Apache-6.png" class="card-img-top" alt=".." style="height: 127px;">
+        <div class="card-body">
+          <h5 class="card-title text-center">Apache</h5>
+          <p class="card-text" style="text-align: center;" >Apache's design and innovation made it a global icon of stylish, effortless urban mobility.</p>
+          <a href="Apache6.html" class="btn btn-primary" style="margin-left: 28px;">Click Here</a>
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+    </section>
+
+    <footer
+      style="height: 408px; background-color: #fcfcfc; font-family: Roboto"
+    >
+      <div class="d-flex align-items-center">
+        <div
+          class="container d-flex justify-content-between align-items-center"
+        >
+          <a href="../../Home.html">
+            <img
+            src="../../image/ttt.svg"
+            alt=""
+            style="width: 260px; margin-top: 80px; top:-20px;"
+          /></a>
+          <!-- <a class="navbar-brand fw-bold fs-1 text-white" href="#">LOGO</a> -->
+          <div
+            class="d-flex"
+            style="gap: 355px; margin-top: 50px; color: #262338"
+          >
+            <div class="one" style="color: #262338">
+              <div style="font-weight: bold">Additional Links</div>
+              <p style="margin-top: 40px; color: #262338">
+                9863482905,9862090518
+              </p>
+              <p style="color: #262338; margin-top: 20px;">yatra9980@gmail.com</p>
+              <p style="color: #262338 ;margin-top: 20px;">kathmandu,Nepal</p>
+            </div>
+            <div class="two" style="margin-right: 140px; color: #262338">
+              <div style="font-weight: bold">Additional Links</div>
+              <a href="../../AboutUs.html" class="footer-link" style="margin-top: 40px;">About Us</a><br />
+              <a href="../.././Rental/bikeRental.html" class="footer-link">Rental</a><br />
+              <a href="../../Contact.html" class="footer-link">Contact Us</a><br />
+              <a href="../../FAQs.html" class="footer-link">FAQs</a><br />
+              <a href="../../terms.html" class="footer-link">Terms And Conditions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="social-media">
+        <h4
+          style="
+            text-align: center;
+            margin-top: 8px;
+            color: #262338;
+            margin-bottom: 4px;
+          "
+        >
+          Social Media:
+          <a href="https://www.facebook.com/profile.php?id=61575751437309">
+            <img src="../../image/facebook.svg" alt="" />
+          </a>
+          <a href="https://www.instagram.com/yatrahamisanga/">
+            <img src="../../image/instagram.svg" alt="" />
+          </a>
+          <a href="https://www.youtube.com/channel/UCb9BBhA2IZX2fc6NAf4dIAA">
+            <img src="../../image/youtube.svg" alt="" />
+          </a>
+        </h4>
+      </div>
+    </footer>
+     <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+
+  </body>
+</html>
+
