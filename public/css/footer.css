@@ -1,0 +1,37 @@
+.social-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    gap: 12px;
+    color: #262338;
+    font-family: "Poppins", sans-serif;
+}
+.social-media a img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+.social-media a img:hover {
+    transform: scale(1.1);
+}
+
+.social-media a {
+    text-decoration: none;
+}
+
+.footer-link {
+    display: inline-block;
+    color: #262338;
+    text-decoration: none;
+    margin-top: 20px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #262586;
+    font-weight: 600;
+}
