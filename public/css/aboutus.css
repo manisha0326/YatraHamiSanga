@@ -1,0 +1,80 @@
+.hero-image {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        background-color: rgba(1, 1, 1,25% ); 
+        filter: brightness(70%);
+      }
+      .text-box {
+        position: absolute;
+        top: 140px;
+        left: 55px;
+        padding: 40px;
+        box-sizing: border-box;
+        color:white;
+        width: 600px;
+        
+      }
+
+      .text-box h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: white; 
+        font-weight: bolder;
+        font-family: roboto;
+      }
+
+      .text-box p {
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: medium;
+        font-family: poppins;
+        letter-spacing: 1px; 
+        line-height: 30px;
+      }
+      .container{
+        display: flex;
+        gap:80px;
+        margin-top: 50px;
+      }
+    
+      .img img{
+        height:380px;
+      }
+      .image{
+        background-color: rgba(1, 1, 1,25% ); 
+        filter: brightness(70%);
+      }
+
+      .book-now-btn {
+        margin-left: 120px;
+        margin-top: 20px;
+        border: none;
+        color: #f6f6f6;
+        background-color: #02005F;
+        font-size: 16px;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        cursor: pointer;
+        padding: 5px 0;
+        overflow: hidden;
+      }
+
+
+      .book-now-btn::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background-color: #f6f6f6;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .book-now-btn:hover::after {
+        transform: scaleX(1);
+      }

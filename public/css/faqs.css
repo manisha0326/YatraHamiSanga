@@ -1,0 +1,114 @@
+body {
+    background-color: #f6f6f6;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    height: 100vh;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.faq-item {
+    background: #fff;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #262338;
+    font-family: poppins;
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #fafafa;
+    font-size: 16px;
+    color: #555;
+    font-family: poppins;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 15px 20px;
+}
+
+.mega-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    width: 600px;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-wrap: wrap;
+    gap: 40px;
+    z-index: 999;
+}
+
+.mega-column a:hover {
+    color: #262586;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    padding-left: 5px;
+}
+
+.nav-item:hover .mega-dropdown {
+    display: flex;
+}
+
+.mega-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.mega-column h4 {
+    font-size: 16px;
+    color: #262586;
+    margin-bottom: 10px;
+    /* font-family: poppins; */
+}
+
+.mega-column a {
+    display: block;
+    padding: 6px 0;
+    color: #262338;
+    text-decoration: none;
+    /* font-family: poppins; */
+}
+
+.mega-column a:hover {
+    color: #262586;
+}
+.custom-purple-btn {
+    color: #262586;
+    border: 1px solid #262586;
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.custom-purple-btn:hover {
+    background-color: #262586;
+    color: white;
+    text-decoration: none;
+}
