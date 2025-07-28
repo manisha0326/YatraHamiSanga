@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rental</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: #f6f6f6;
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        height: 100vh;
+      }
+
+      .nav-link {
+        color: #262338;
+        position: relative;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background-color: #262586;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-link:hover {
+        color: #262586;
+      }
+
+      .btn:hover {
+        background-color: #262486;
+        color: white !important;
+      }
+      .nav-link {
+        color: #262338;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        background-color: rgba(1, 1, 1, 25%);
+        filter: brightness(70%);
+      }
+      .text-box {
+        position: absolute;
+        top: 140px;
+        left: 55px;
+        padding: 40px;
+        box-sizing: border-box;
+        color: white;
+        width: 600px;
+      }
+
+      .text-box h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: white;
+        font-weight: bolder;
+        font-family: roboto;
+      }
+
+      .text-box p {
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: medium;
+        font-family: poppins;
+        letter-spacing: 1px;
+        line-height: 30px;
+        text-align: justify;
+      }
+      .container {
+        display: flex;
+        gap: 100px;
+        margin-top: 50px;
+      }
+
+      .img img {
+        height: 380px;
+      }
+      .see-more-btn {
+        border: none;
+        background-color: #f6f6f6;
+        color: #262586;
+        font-size: 16px;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+        position: relative;
+        cursor: pointer;
+        padding: 5px 0;
+        overflow: hidden;
+      }
+
+      .see-more-btn::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background-color: #262586;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .see-more-btn:hover::after {
+        transform: scaleX(1);
+      }
+
+      .book-now-btn {
+        margin-left: 120px;
+        margin-top: 20px;
+        border: none;
+        color: #f6f6f6;
+        background-color: #02005f;
+        font-size: 16px;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+        position: relative;
+        cursor: pointer;
+        padding: 5px 0;
+        overflow: hidden;
+      }
+
+      .book-now-btn::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background-color: #f6f6f6;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .book-now-btn:hover::after {
+        transform: scaleX(1);
+      }
+      .social-media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8px;
+        margin-bottom: 20px;
+        gap: 12px;
+        color: #262338;
+        font-family: "Poppins", sans-serif;
+      }
+      .social-media a img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        transition: transform 0.2s ease;
+      }
+      .social-media a img:hover {
+        transform: scale(1.1);
+      }
+
+      .social-media a {
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        background-color: #1b1b75;
+      }
+
+      .footer-link {
+        display: inline-block;
+        color: #262338;
+        text-decoration: none;
+        margin-top: 20px;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      .footer-link:hover {
+        color: #262586;
+        font-weight: 600;
+      }
+
+      .mega-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        width: 600px;
+        padding: 20px;
+        display: none;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        display: none;
+        flex-wrap: wrap;
+        gap: 40px;
+        z-index: 999;
+      }
+
+      .mega-column a:hover {
+        color: #262586;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        padding-left: 5px;
+      }
+
+      .nav-item:hover .mega-dropdown {
+        display: flex;
+      }
+
+      .mega-column {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .mega-column h4 {
+        font-size: 16px;
+        color: #262586;
+        margin-bottom: 10px;
+        /* font-family: poppins; */
+      }
+
+      .mega-column a {
+        display: block;
+        padding: 6px 0;
+        color: #262338;
+        text-decoration: none;
+        /* font-family: poppins; */
+      }
+
+      .mega-column a:hover {
+        color: #262586;
+      }
+      .custom-purple-btn {
+        color: #262586;
+        border: 1px solid #262586;
+        padding: 6px 12px;
+        font-size: 16px;
+        border-radius: 4px;
+        background-color: transparent;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .custom-purple-btn:hover {
+        background-color: #262586;
+        color: white;
+        text-decoration: none;
+      }
+
+      .ride-section img {
+        border-radius: 8px;
+        object-fit: cover;
+      }
+      .filters {
+        background: #fff;
+        border-radius: 10px;
+        margin-left: 60px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      }
+      .vehicle-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+      .vehicle-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .vehicle-card .content {
+        padding: 15px;
+      }
+      .vehicle-card .price {
+        font-size: 20px;
+        font-weight: 700;
+        color: #2d3748;
+      }
+      .form-control,
+      .form-select {
+        border-radius: 8px;
+      }
+      .filter-label {
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .row {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body style="font-family: Roboto">
+    <nav
+      class="navbar navbar-expand-lg mt-0 py-0"
+      style="
+        background-color: #fcfcfc;
+        box-shadow: 0px 4px 4px rgba(154, 200, 215, 0.1);
+        font-size: 16px;
+      "
+    >
+      <div class="container-fluid">
+        <a href="../Home.html">
+          <img src="../image/ttt.svg" alt="" style="height: 96px; width: 260px" />
+        </a>
+        <div
+          class="collapse navbar-collapse"
+          id="navbarSupportedContent"
+          style="margin-left: 20px"
+        >
+          <ul
+            class="navbar-nav me-auto mb-2 mb-lg-0"
+            style="gap: 30px; font-size: 16px"
+          >
+            <li class="nav-item">
+              <a class="nav-link" href="../AboutUs.html">About Us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#">Category</a>
+              <div class="mega-dropdown">
+                <div class="mega-column">
+                  <h4>Two Wheelers</h4>
+                  <a href="scooterRental.html">Scooter</a>
+                  <a href="bikeRental.html">Bike</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Four Wheelers</h4>
+                  <a href="carRental.html">Car</a>
+                  <a href="scorpioRental.html">Scorpio</a>
+                  <a href="hiaceRental.html">Hiace</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="bikeRental.html">Rental</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../payment.html">Booking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../FAQs.html">FAQs</a>
+            </li>
+            
+          </ul>
+          <form class="d-flex" role="search" style="margin-right: 60px">
+            <!-- <input class="form-control me-1 custom-width" type="search" placeholder="which vehicle do you want?" aria-label="Search"> -->
+            <input
+              class="form-control me-1"
+              style="width: 250px"
+              type="search"
+              placeholder="which vehicle do you want?"
+              aria-label="Search"
+            />
+
+            <a href="signup.html" class="btn custom-purple-btn">Sign Up</a>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <section>
+      <div class="container-fluid p-4">
+        <h2
+          class="mb-4"
+          style="
+            margin-left: 60px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            color: #262338;
+          "
+        >
+          Find Your Perfect
+          <span style="color: #262586; font-weight: bold">Ride </span> & Enjoy
+          Unbeatable
+          <span style="color: #262586; font-weight: bold">Rentals</span>
+        </h2>
+        <div class="row" style="margin-top: 50px">
+          <div class="col-md-3">
+            <div class="filters">
+  <div class="mb-3">
+    <h3 class="filter-label">Vehicle Type</h3>
+
+    <div>
+      <input
+        type="checkbox"
+        name="option"
+        id="bike"
+        onclick="checkOnlyOne(this); window.location.href='BikeRental.html';"
+        
+      />
+      <label for="bike" style="cursor: pointer; color: #262338; text-decoration: none;">
+        Bike
+      </label>
+    </div>
+
+    <div>
+      <input
+        type="checkbox"
+        name="option"
+        id="scooter"
+        onclick="checkOnlyOne(this); window.location.href='scooterRental.html';"
+      />
+      <label for="scooter" style="cursor: pointer; color: #262338; text-decoration: none;">
+        Scooter
+      </label>
+    </div>
+
+    <div>
+      <input
+        type="checkbox"
+        name="option"
+        id="car"
+        onclick="checkOnlyOne(this); window.location.href='carRental.html';"
+        checked
+
+      />
+      <label for="car" style="cursor: pointer; color: #262338; text-decoration: none;">
+        Car
+      </label>
+    </div>
+
+    <div>
+      <input
+        type="checkbox"
+        name="option"
+        id="scorpio"
+        onclick="checkOnlyOne(this); window.location.href='scorpioRental.html';"
+      />
+      <label for="scorpio" style="cursor: pointer; color: #262338; text-decoration: none;">
+        Scorpio
+      </label>
+    </div>
+
+    <div>
+      <input
+        type="checkbox"
+        name="option"
+        id="hiace"
+        onclick="checkOnlyOne(this); window.location.href='hiaceRental.html';"
+      />
+      <label for="hiace" style="cursor: pointer; color: #262338; text-decoration: none;">
+        Hiace
+      </label>
+    </div>
+  </div>
+</div>
+          </div>
+          <script>
+            function checkOnlyOne(checkbox) {
+              let checkboxes = document.getElementsByName("option");
+              checkboxes.forEach((item) => {
+                if (item !== checkbox) item.checked = false;
+              });
+            }
+          </script>
+
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-6">
+                <a href="../Car/Car1/car1.1.html" class="text-decoration-none text-dark">
+                  <div class="vehicle-card">
+                    <img src="../image/Car/car1.png" alt="" />
+                    <div class="content">
+                      <h5>
+                        Toyota Glanza
+                        <span class="badge bg-light text-dark">Car</span>
+                      </h5>
+                      <div class="text-success">✔ Free Cancellation</div>
+                      <div class="text-success">✔ Instant Booking</div>
+                      <div class="text-success">✔ Insurance</div>
+                      <div class="price mt-2">
+                        NRS 8000 <span class="text-muted fs-6">/ day</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-md-6">
+                <a href="../Car/Car2/car2.1.html" class="text-decoration-none text-dark">
+                  <div class="vehicle-card">
+                    <img src="../image/Car/car2.jpg" alt="" />
+                    <div class="content">
+                      <h5>
+                        Maruti Suzuki Grand Vitara
+                        <span class="badge bg-light text-dark">Car</span>
+                      </h5>
+                      <div class="text-success">✔ Free Cancellation</div>
+                      <div class="text-success">✔ Instant Booking</div>
+                      <div class="text-success">✔ Insurance</div>
+                      <div class="price mt-2">
+                        NRS 8000 <span class="text-muted fs-6">/ day</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-md-6">
+                <a href="../Car/Car3/car3.1.html" class="text-decoration-none text-dark">
+                  <div class="vehicle-card">
+                    <img src="../image/Car/car3.png" alt="" />
+                    <div class="content">
+                      <h5>
+                        Honda Amaze
+                        <span class="badge bg-light text-dark">Car</span>
+                      </h5>
+                      <div class="text-success">✔ Free Cancellation</div>
+                      <div class="text-success">✔ Instant Booking</div>
+                      <div class="text-success">✔ Insurance</div>
+                      <div class="price mt-2">
+                        NRS 8000 <span class="text-muted fs-6">/ day</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-md-6">
+                <a href="../Car/Car4/car4.1.html" class="text-decoration-none text-dark">
+                  <div class="vehicle-card">
+                    <img src="../image/Car/car4.jpg" alt="" />
+                    <div class="content">
+                      <h5>
+                        Hyundai VERNA
+                        <span class="badge bg-light text-dark">Car</span>
+                      </h5>
+                      <div class="text-success">✔ Free Cancellation</div>
+                      <div class="text-success">✔ Instant Booking</div>
+                      <div class="text-success">✔ Insurance</div>
+                      <div class="price mt-2">
+                        NRS 8000 <span class="text-muted fs-6">/ day</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      style="height: 420px; background-color: #fcfcfc; font-family: Roboto"
+    >
+      <div class="d-flex align-items-center">
+        <div
+          class="container d-flex justify-content-between align-items-center"
+        >
+          <a href="Home.html">
+            <img
+              src="../../image/ttt.svg"
+              alt=""
+              style="width: 260px; margin-top: 80px"
+          /></a>
+          <!-- <a class="navbar-brand fw-bold fs-1 text-white" href="#">LOGO</a> -->
+          <div
+            class="d-flex"
+            style="gap: 400px; margin-top: 50px; color: #262338"
+          >
+            <div class="one" style="color: #262338">
+              <div style="font-weight: bold">Additional Links</div>
+              <p style="margin-top: 40px; color: #262338">
+                9863482905,9862090518
+              </p>
+              <p style="color: #262338; margin-top: 20px">
+                yatra9980@gmail.com
+              </p>
+              <p style="color: #262338; margin-top: 20px">kathmandu,Nepal</p>
+            </div>
+            <div class="two" style="margin-right: 140px; color: #262338">
+              <div style="font-weight: bold">Additional Links</div>
+              <a
+                href="../AboutUs.html"
+                class="footer-link"
+                style="margin-top: 40px"
+                >About Us</a
+              ><br />
+              <a href="./bikeRental.html" class="footer-link">Rental</a><br />
+              <a href="../Contact.html" class="footer-link">Contact Us</a><br />
+              <a href="../FAQs.html" class="footer-link">FAQs</a><br />
+              <a href="../terms.html" class="footer-link">Terms And Conditions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="social-media">
+        <h4
+          style="
+            text-align: center;
+            margin-top: 8px;
+            color: #262338;
+            margin-bottom: 20px;
+          "
+        >
+          Social Media:
+          <a href="https://www.facebook.com/profile.php?id=61575751437309">
+            <img src="../../image/facebook.svg" alt="" />
+          </a>
+          <a href="https://www.instagram.com/yatrahamisanga/">
+            <img src="../../image/instagram.svg" alt="" />
+          </a>
+          <a href="https://www.youtube.com/channel/UCb9BBhA2IZX2fc6NAf4dIAA">
+            <img src="../../image/youtube.svg" alt="" />
+          </a>
+        </h4>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

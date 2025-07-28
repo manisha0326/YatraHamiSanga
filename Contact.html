@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
+    <title>Contact</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -21,19 +21,21 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      body{
+      body {
         background-color: #f6f6f6;
         font-family: "Roboto", sans-serif;
         margin: 0;
         height: 100vh;
       }
-      .nav-link{
-        color: #262338 ;
+      .nav-link {
+        color: #262338;
       }
 
       .nav-link {
@@ -44,7 +46,7 @@
       }
 
       .nav-link::after {
-        content: '';
+        content: "";
         position: absolute;
         width: 0%;
         height: 2px;
@@ -53,8 +55,8 @@
         background-color: #262586;
         transition: width 0.3s ease;
       }
-      .nav-link:hover{
-        color: #262586; 
+      .nav-link:hover {
+        color: #262586;
       }
 
       .nav-link:hover::after {
@@ -65,85 +67,11 @@
         background-color: #262486;
         color: white !important;
       }
-      .hero-image {
-        width: 100%;
-        height: 500px;
-        object-fit: cover;
-        background-color: rgba(1, 1, 1,25% ); 
-        filter: brightness(70%);
-      }
-      .text-box {
-        position: absolute;
-        top: 140px;
-        left: 55px;
-        padding: 40px;
-        box-sizing: border-box;
-        color:white;
-        width: 600px;
-        
-      }
-
-      .text-box h1 {
-        font-size: 36px;
-        margin-bottom: 20px;
-        color: white; 
-        font-weight: bolder;
-        font-family: roboto;
-      }
-
-      .text-box p {
-        font-size: 18px;
-        line-height: 1.6;
-        font-weight: medium;
+      .form-label {
         font-family: poppins;
-        letter-spacing: 1px; 
-        line-height: 30px;
       }
-      .container{
-        display: flex;
-        gap:80px;
-        margin-top: 50px;
-      }
-    
-      .img img{
-        height:380px;
-      }
-      .image{
-        background-color: rgba(1, 1, 1,25% ); 
-        filter: brightness(70%);
-      }
-
-      .book-now-btn {
-        margin-left: 120px;
-        margin-top: 20px;
-        border: none;
-        color: #f6f6f6;
-        background-color: #02005F;
-        font-size: 16px;
-        font-weight: 600;
-        font-family: 'Poppins', sans-serif;
-        position: relative;
-        cursor: pointer;
-        padding: 5px 0;
-        overflow: hidden;
-      }
-
-
-      .book-now-btn::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 2px;
-        width: 100%;
-        background-color: #f6f6f6;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.3s ease;
-      }
-
-      .book-now-btn:hover::after {
-        transform: scaleX(1);
+      .form-check-label {
+        font-family: poppins;
       }
 
       .social-media {
@@ -154,7 +82,7 @@
         margin-bottom: 20px;
         gap: 12px;
         color: #262338;
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
       }
       .social-media a img {
         width: 24px;
@@ -167,7 +95,7 @@
       }
 
       .social-media a {
-        text-decoration: none; 
+        text-decoration: none;
       }
 
       .footer-link {
@@ -179,87 +107,87 @@
         transition: color 0.3s ease;
       }
 
-      .footer-link:hover{
-        color:#262586;
+      .footer-link:hover {
+        color: #262586;
         font-weight: 600;
       }
+      .mega-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        width: 600px;
+        padding: 20px;
+        display: none;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        display: none;
+        flex-wrap: wrap;
+        gap: 40px;
+        z-index: 999;
+      }
 
-       .mega-dropdown {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #fff;
-      width: 600px;
-      padding: 20px;
-      display: none;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      display: none;
-      flex-wrap: wrap;
-      gap: 40px;
-      z-index: 999;
-    }
+      .mega-column a:hover {
+        color: #262586;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        padding-left: 5px;
+      }
 
-    .mega-column a:hover {
-      color: #262586;
-      background-color: #f5f5f5; 
-      border-radius: 4px;
-      padding-left: 5px;
-    }
+      .nav-item:hover .mega-dropdown {
+        display: flex;
+      }
 
-    .nav-item:hover .mega-dropdown {
-      display: flex;
-    }
+      .mega-column {
+        flex: 1;
+        min-width: 200px;
+      }
 
-    .mega-column {
-      flex: 1;
-      min-width: 200px;
-    }
+      .mega-column h4 {
+        font-size: 16px;
+        color: #262586;
+        margin-bottom: 10px;
+        /* font-family: poppins; */
+      }
 
-    .mega-column h4 {
-      font-size: 16px;
-      color: #262586;
-      margin-bottom: 10px;
-      /* font-family: poppins; */
-    }
+      .mega-column a {
+        display: block;
+        padding: 6px 0;
+        color: #262338;
+        text-decoration: none;
+        /* font-family: poppins; */
+      }
 
-    .mega-column a {
-      display: block;
-      padding: 6px 0;
-      color: #262338;
-      text-decoration: none;
-      /* font-family: poppins; */
-    }
+      .mega-column a:hover {
+        color: #262586;
+      }
+      .custom-purple-btn {
+        color: #262586;
+        border: 1px solid #262586;
+        padding: 6px 12px;
+        font-size: 16px;
+        border-radius: 4px;
+        background-color: transparent;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
 
-    .mega-column a:hover {
-      color: #262586;
-    }
-    .custom-purple-btn {
-      color: #262586;
-      border: 1px solid #262586;
-      padding: 6px 12px;
-      font-size: 16px;
-      border-radius: 4px;
-      background-color: transparent;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .custom-purple-btn:hover {
+      .custom-purple-btn:hover {
         background-color: #262586;
         color: white;
         text-decoration: none;
-    }
-    .containers{
-        display: flex;
-        gap:100px;
-        /* margin-top: 50px; */
-        background-color: #557afd17;
-
-        height: 200px;
+      }
+      .image img {
+        margin: 0px 20px;
+        /* width: 100%; */
+        width: 1470px;
+        height: 380px;
+        object-fit: cover;
+        margin-top: 50px;
+        padding: 0px;
       }
     </style>
   </head>
-  <body style="font-family: Roboto">
+  <body>
     <nav
       class="navbar navbar-expand-lg mt-0 py-0"
       style="
@@ -330,39 +258,117 @@
         </div>
       </div>
     </nav>
-      <section>
-        <img src="image/group.svg" alt="" style="height: 400px;width: 100%;object-fit: cover;display: block;" class="image">
-        <h1 style="color: white; font-family: roboto;position: absolute; top: 400px;left: 100px;">About Us</h1>
-        <div class="containers">
-          <p style="font-family: poppins;font-size: 16px; margin-top: 60px; letter-spacing: 1px; line-height: 30px;color: #262338 ; margin: 50px 85px; text-align: justify;">
-          At Yatra Hami Sanga, we stand out for our commitment to convenience, affordability, and reliability. Our easy-to-use platform allows you to book a wide variety of vehicles, from compact cars to luxury SUVs, anytime, anywhere. We pride ourselves on offering transparent, ensuring you get the best value for your money. Each of our vehicles undergoes regular maintenance and safety checks, so you can drive with peace of mind. Plus, our dedicated 24/7 customer support is always ready to assist, making sure your rental experience is seamless from start to finish.
-        </p>
-        </div>
-        
-        <div>
-          <h3 style="text-align: center; margin-top: 40px; color:  #262586; font-family: Roboto; margin-bottom: 50px;">Why Chossing Us?</h3>
-          <p style="font-family: poppins;font-size: 16px; margin-top: 10px; letter-spacing: 1px; line-height: 30px;color: #262338 ;margin-left: 90px;">🚗 Wide Range of Vehicles = Covering everything from budget friendly cars </p>
-          <p style="font-family: poppins;font-size: 16px; margin-top: 10px; letter-spacing: 1px; line-height: 30px;color: #262338 ;margin-left: 90px;">💰 Affordable = No hidden charges, pay only what you see.</p>
-          <p style="font-family: poppins;font-size: 16px; margin-top: 10px; letter-spacing: 1px; line-height: 30px;color: #262338 ;margin-left: 90px;">📱 Easy Online Booking = Quick, user-friendly platform to book anytime, anywhere.</p>
-          <p style="font-family: poppins;font-size: 16px; margin-top: 10px; letter-spacing: 1px; line-height: 30px;color: #262338 ;margin-left: 90px;">🛠️ Well-Maintained & Safe Vehicles = Regularly inspected for your safety and comfort.</p>
-          <p style="font-family: poppins;font-size: 16px; margin-top: 10px; letter-spacing: 1px; line-height: 30px;color: #262338 ;margin-left: 90px;">🕒 24/7 Customer Support = Round the clock assistance for a smooth experience.</p>
-          <p style="font-family: poppins;font-size: 16px; margin-top: 10px; letter-spacing: 1px; line-height: 30px;color: #262338 ;margin-left: 90px;">🔄 Flexible Rental Plans = Hourly, daily, weekly, or monthly options to suit your needs.</p>
-        </div>
-        <div style="background-color: #02005f; height: 380px; margin-top: 50px; display: flex; gap: 100px;">
-          <div>
-            <p style="font-family: poppins; color: #ffff; margin-left: 130px; font-size: 32px; font-weight: bold; margin-top: 110px;">"Book your ride today and start your journey with ease and comfort!"</p>
-            <button class="book-now-btn">
-              <a href="payment.html" style="text-decoration: none; color: white;">Book Now &rarr;</a></button>
-          </div>
-          
-          <div class="img">
-            <img src="image/girl.svg" alt="">
-          </div>
-          
-        </div>
-      </section>
 
-      <footer
+    <section style="padding: 40px 0px 0px 0px">
+      <div class="container">
+        <div class="row g-5">
+          <!-- Left Column: Info & Image -->
+          <div class="col-md-6 mb-4">
+            <div>
+              <img
+                src="./image/contact.png"
+                alt=""
+                style="width: 600px; height: 500px"
+              />
+            </div>
+            <div>
+              <div style="display: flex; gap: 20px; align-items: center">
+                <img
+                  src="./image/call_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt=""
+                />
+                <p style="color: #262338; margin-top: 10px">
+                  9863482905,9862090518
+                </p>
+              </div>
+              <div style="display: flex; gap: 20px; align-items: center">
+                <img
+                  src="./image/mail_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt=""
+                />
+                <p style="color: #262338; margin-top: 10px">
+                  yatra9980@gmail.com
+                </p>
+              </div>
+              <div style="display: flex; gap: 20px; align-items: center">
+                <img
+                  src="./image/location_on_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt=""
+                />
+                <p style="color: #262338; margin-top: 10px">kathmandu,Nepal</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Form -->
+          <div class="col-md-6">
+            <h4 style="color: #262586; font-family: Roboto; text-align: center">
+              "Don't hesitate to drop your queries"
+            </h4>
+            <form
+              style="
+                padding: 30px;
+                margin-top: 30px;
+                border: 1.5px solid #d0d5dd;
+                border-radius: 4px;
+                background-color: #fff;
+              "
+            >
+              <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" />
+              </div>
+              <div class="mb-3">
+                <label for="Email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="Email" />
+              </div>
+              <div class="mb-3">
+                <label for="conatct" class="form-label">Contact Number</label>
+                <input type="number" class="form-control" id="conatct" />
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Write a message</label>
+                <textarea class="form-control" id="message" rows="3"></textarea>
+              </div>
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="exampleCheck1"
+                />
+                <label class="form-check-label" for="exampleCheck1"
+                  >I agree to all terms and conditions</label
+                >
+              </div>
+              <button
+                type="submit"
+                class="btn"
+                style="
+                  background-color: #262586;
+                  color: white;
+                  width: 140px;
+                  height: 40px;
+                  font-family: poppins;
+                  font-size: 16px;
+                "
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="#">
+        <div class="image">
+          <a
+            href="https://www.google.com/maps/place/New+Baneshwor,+Kathmandu+44600/@27.6947545,85.2986184,13z/data=!4m6!3m5!1s0x39eb199a06c2eaf9:0xc5670a9173e161de!8m2!3d27.6915196!4d85.3420486!16s%2Fg%2F1v3dqjnc?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
+          >
+            <img src="../image/map.svg" alt="" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <footer
       style="height: 420px; background-color: #fcfcfc; font-family: Roboto"
     >
       <div class="d-flex align-items-center">
@@ -421,10 +427,5 @@
         </h4>
       </div>
     </footer>
-
-      
-    </section>
-   
-
   </body>
 </html>
