@@ -13,6 +13,9 @@
                   @if ($cancelledBookings->isEmpty())
                       <p>No cancelled bookings found.</p>
                   @else
+                  <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2>Cancelled Bookings</h2>
+                    </div>
                     <table class="table table-bordered">
                         <thead>
                           <tr style="text-align: center;">

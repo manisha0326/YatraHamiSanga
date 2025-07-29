@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\BookingConfirmation;
+use Carbon\Carbon;
 use App\Models\Booking;
 use App\Models\Payment;
 use App\Models\Brand;
@@ -27,7 +28,7 @@ class PaymentController extends Controller
     $payload = [
         'return_url' => url('/api/verify-payment'),
         'website_url' => config('payment.khalti.website_url'),
-        'amount' => $brand->price * 100, // paisa
+        'amount' =>100, // paisa
         'purchase_order_id' => uniqid(),
         'purchase_order_name' => $brand->brand_name,
         'customer_info' => [
@@ -95,6 +96,20 @@ class PaymentController extends Controller
             if ($brand) {
                 $brand->status = 'booked';
                 $brand->save();
+            }
+
+            // ✅ Auto update expired bookings here
+            $expiredBookings = Booking::where('status', 'booked')
+                ->where('returnDate', '<', Carbon::now())
+                ->get();
+
+            foreach ($expiredBookings as $expired) {
+                $brand = Brand::find($expired->vehicleModel);
+                if ($brand && $brand->status === 'booked') {
+                    $brand->status = 'Available';
+                    $brand->save();
+                }
+                
             }
 
 

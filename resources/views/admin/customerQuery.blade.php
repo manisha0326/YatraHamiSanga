@@ -13,9 +13,6 @@
                 <div class="table-responsive mt-4" >
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h2>Customer Query</h2>
-                    {{-- <a href="{{ route('admin.brand.create') }}" class="btn " style="background-color: #262586; color: white; width: 140px; height: 40px;">
-                        <i class="bi bi-plus"></i> Add New
-                    </a> --}}
                     </div>
                     
                     <table class="table table-bordered text-center" style="table-layout: fixed; width: 100%;">

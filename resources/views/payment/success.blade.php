@@ -62,7 +62,7 @@
             <p><strong>User Name:</strong> {{ $bookingData['user']['fullname'] ?? 'User' }}</p>
             
             {{-- <div class="container" style="margin-top: 98px">
-                <h2>✅ Payment Successful</h2>
+                <h2> Payment Successful</h2>
                 <p>Thank you for your payment, {{ $data['user']['name'] ?? 'User' }}.</p>
                 <p><strong>Order ID:</strong> {{ $data['purchase_order_id'] }}</p>
                 <p><strong>Amount:</strong> Rs. {{ $data['amount'] / 100 }}</p>

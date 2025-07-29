@@ -13,6 +13,9 @@
             @if (Session::has('error'))
               <div id="alert-message" class="alert alert-danger">{{ Session::get('error') }} </div>
             @endif
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2>Booking History</h2>
+                    </div>
                     <table class="table table-bordered">
                         <thead>
                           <tr style="text-align: center;">
