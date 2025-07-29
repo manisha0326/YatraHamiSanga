@@ -21,7 +21,6 @@
                           <tr style="text-align: center;">
                             <th scope="col">S.N</th>
                             <th scope="col">Vehicle Name</th>
-                            {{-- <th scope="col">Brand</th> --}}
                             <th scope="col">Booked Date</th>
                             <th scope="col">Return Date</th>
                             <th scope="col">status</th>
@@ -32,7 +31,6 @@
                             @foreach ($cancelledBookings as $index=> $booking)
                                 <tr style="text-align: center;">
                                     <td>{{ $index + 1 }}</td>
-                                    {{-- <td>{{ $booking->vehicleType }}</td> --}}
                                     <td>{{ $booking->brand->brand_name ?? 'N/A' }}</td>
                                     <td>{{ \Carbon\Carbon::parse($booking->pickupDate)->format('d-m-Y') }}</td>
                                     <td>{{ \Carbon\Carbon::parse($booking->returnDate)->format('d-m-Y') }}</td>

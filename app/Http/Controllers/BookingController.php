@@ -29,7 +29,7 @@ class BookingController extends Controller
             'email' => 'required|email',
             'phoneNumber' => 'required|numeric',
             'vehicleType' => 'required|exists:categories,id',
-            'vehicleModel' => 'required|exists:brands,id',  // Ensures brand ID is valid
+            'vehicleModel' => 'required|exists:brands,id', 
             'bookingType' => 'required|in:perDay,perHour',
             'pickupDate' => 'required_if:bookingType,perDay|date|nullable',
             'returnDate' => 'required_if:bookingType,perDay|date|after_or_equal:pickupDate|nullable',
@@ -48,7 +48,7 @@ class BookingController extends Controller
             'email'         => $request->email,
             'phone'         => $request->phoneNumber,
             'vehicleType'   => $request->vehicleType,
-            'vehicleModel'  => $request->vehicleModel, // this should be brand ID
+            'vehicleModel'  => $request->vehicleModel,
             'bookingType'   => $request->bookingType,
             'pickupDate'    => $request->pickupDate,
             'returnDate'    => $request->returnDate,
@@ -58,7 +58,7 @@ class BookingController extends Controller
 
         session(['booking_data' => $bookingData]);
         
-        logger('✅ Booking session data saved.', ['booking_data' => $bookingData]);
+        logger('Booking session data saved.', ['booking_data' => $bookingData]);
 
         return redirect()->route('initiate.payment');
     }
@@ -100,7 +100,6 @@ class BookingController extends Controller
                 $booking->brand->save();
             }
 
-            
             Mail::to($booking->email)->send(new BookingCancelled($booking));
 
             return redirect()->route('user.Cancelvehicle')->with('success', 'Booking cancelled successfully.');

@@ -12,7 +12,5 @@ class Brand extends Model
     {
         return $this->belongsTo(Category::class);
     }
-    public function vehicles() {
-        return $this->hasMany(Vehicle::class);
-    }
+   
 }

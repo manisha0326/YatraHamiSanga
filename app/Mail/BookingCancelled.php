@@ -45,7 +45,7 @@ class BookingCancelled extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.bookingCancelled', // Your actual email blade file
+            view: 'emails.bookingCancelled', 
         );
     }
 

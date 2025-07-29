@@ -8,10 +8,6 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
-    // public function profile()
-    // {
-    //     return view('user.profile'); 
-    // }
 
     public function upload(Request $request)
     {

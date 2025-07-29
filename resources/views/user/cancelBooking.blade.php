@@ -64,26 +64,30 @@
 
     <!-- Cancel booking cards -->
     {{-- @foreach ($bookings as $booking) --}}
-        <div class="card mb-3">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="{{ asset('storage/' . $booking->brand->image) }}" class="img-fluid rounded-start" alt="Vehicle Image" style="height: 100%; object-fit: cover;">
-                </div>
-                <div class="col-md-8">
-                    <div class="p-4" style="margin-top: 30px; margin-left: 60px;">
-                        <h1 class="fw-bold">{{ $booking->brand->brand_name ?? 'Unknown Brand' }}</h1>
-                        {{-- <p class="mt-3 fs-5">{{ $booking->brand->brand_name ?? 'Unknown Brand' }}</p> --}}
-                        <p style="margin-top: 20px; font-size: 20px;">It's design and innovation made it a global icon of stylish.</p>
-                        <p style="margin-top: 20px; font-size: 18px;">
-                            Cancellations must be made at least 6 hours before the scheduled pickup for a full refund, with 10% deducted within 6 hours, and 25% deducted within 1 hour.
-                        </p>
-                        <button class="btn-cancel" onclick="showPopOut({{ $booking->id }})" style="font-size: 20px; padding: 12px 24px;margin-left:600px;margin-top:56px;">
-                            Cancel
-                        </button>
-                    </div>
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ asset('storage/' . $booking->brand->image) }}" class="img-fluid rounded-start" alt="Vehicle Image"
+                    style="height: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+                <div class="p-4" style="margin-top: 30px; margin-left: 60px;">
+                    <h1 class="fw-bold">{{ $booking->brand->brand_name ?? 'Unknown Brand' }}</h1>
+                    {{-- <p class="mt-3 fs-5">{{ $booking->brand->brand_name ?? 'Unknown Brand' }}</p> --}}
+                    <p style="margin-top: 20px; font-size: 20px;">It's design and innovation made it a global icon of
+                        stylish.</p>
+                    <p style="margin-top: 20px; font-size: 18px;">
+                        Cancellations must be made at least 6 hours before the scheduled pickup for a full refund, with 10%
+                        deducted within 6 hours, and 25% deducted within 1 hour.
+                    </p>
+                    <button class="btn-cancel" onclick="showPopOut({{ $booking->id }})"
+                        style="font-size: 20px; padding: 12px 24px;margin-left:600px;margin-top:56px;">
+                        Cancel
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
     {{-- @endforeach --}}
 
     <!-- Confirmation Popup -->
@@ -91,12 +95,12 @@
         <h3>Are you sure to cancel your booking?</h3>
         <div style="display:flex; gap:10px; justify-content: center;">
             <form id="cancelForm" method="POST">
-            @csrf
-            <button class="btn-confirm" type="submit" onclick="showRefundDiv()">Yes</button>
+                @csrf
+                <button class="btn-confirm" type="submit" onclick="showRefundDiv()">Yes</button>
             </form>
             <button class="btn-cancel" onclick="hidePopOut()">No</button>
         </div>
-        
+
 
         <div id="refundDiv">
             <strong>Refund Initiated:</strong> Your refund will be processed within 3–5 business days.

@@ -7,25 +7,8 @@ use Illuminate\Http\Request;
 
 class RentalController extends Controller
 {
-    // Default rental page (e.g., Bike)
-//     public function index()
-// {
-//     $categories = Category::all();
-//     $defaultCategory = $categories->first();
-
-//     $brands = Brand::with('category')
-//         ->where('category_id', $defaultCategory->id)
-//         ->get();
-
-//     return view('frontend.Rental.index', [
-//         'categories' => $categories,
-//         'brands' => $brands,
-//         'selectedCategorySlug' => $defaultCategory->slug,
-//     ]);
-// }
     public function index($slug = null)
     {
-        // dd("here");
     
         $categories = Category::all();
 
@@ -66,8 +49,6 @@ class RentalController extends Controller
     public function showDescription($slug)
     {
         $brand = Brand::where('slug', $slug)->firstOrFail();
-
-        // You can pass brand details to your description view
         return view('frontend.Rental.description', compact('brand'));
     }
 

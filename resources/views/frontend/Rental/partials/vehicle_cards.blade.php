@@ -2,7 +2,8 @@
     <div class="col-md-6 mb-4">
         <a href="{{ route('rental.description', $brand->slug) }}" class="text-decoration-none text-dark">
             <div class="vehicle-card">
-                <img src="{{ asset('storage/' . $brand->image) }}" alt="{{ $brand->brand_name }}" style="object-fit: contain;" class="img-fluid" />
+                <img src="{{ asset('storage/' . $brand->image) }}" alt="{{ $brand->brand_name }}"
+                    style="object-fit: contain;" class="img-fluid" />
                 <div class="content mt-2">
                     <h5>
                         {{ $brand->brand_name }}

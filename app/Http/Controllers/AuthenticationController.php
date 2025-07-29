@@ -38,15 +38,13 @@ class AuthenticationController extends Controller
 
 
              Auth::login($user);
-            // return redirect()->route('login')->with('success','You have registered successfully');
+
             return redirect()->route('home');
 
         }else{
             return redirect()->route('signup')->withInput()->withErrors($validator);
         }
 
-        // return redirect()->route('user.dashboard');
-        
     }
 
     //login ko function

@@ -9,20 +9,22 @@
                     <div class="row g-0">
 
                         <div class="col-md-4 p-0 d-flex flex-column align-items-center justify-content-start bg-light">
-    
+
                             {{-- Show current user profile image or default --}}
                             <img src="{{ Auth::user()->profile_image ? asset('storage/' . Auth::user()->profile_image) : asset('image/default.jpg') }}"
                                 alt="Profile Image"
-                                style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%;margin-top:80px; "
-                            />
+                                style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%;margin-top:80px; " />
 
                             {{-- Upload Form --}}
-                            <form id="uploadForm" action="{{ route('admin.profile') }}" method="POST" enctype="multipart/form-data" class="my-3">
+                            <form id="uploadForm" action="{{ route('admin.profile') }}" method="POST"
+                                enctype="multipart/form-data" class="my-3">
                                 @csrf
 
-                                <input type="file" name="profile_image" id="uploadImage" class="d-none" accept="image/*" onchange="document.getElementById('uploadForm').submit();">
+                                <input type="file" name="profile_image" id="uploadImage" class="d-none" accept="image/*"
+                                    onchange="document.getElementById('uploadForm').submit();">
 
-                                <a href="#" onclick="document.getElementById('uploadImage').click();" class="btn btn-outline-primary">
+                                <a href="#" onclick="document.getElementById('uploadImage').click();"
+                                    class="btn btn-outline-primary">
                                     Upload Image
                                 </a>
                             </form>

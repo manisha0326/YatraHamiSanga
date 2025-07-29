@@ -31,7 +31,6 @@ class ContactusController extends Controller
         }else{
             return redirect()->back()->withInput()->withErrors($validator);
         }
-        // return redirect()->route('forgetPassword')->withInput()->withErrors($validator);
     }
 
     public function index()

@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard'); // you should create this Blade file
+        return view('admin.dashboard');
     }
 
     public function profileAdmin()
@@ -21,13 +21,7 @@ class DashboardController extends Controller
 
     public function userDashboard()
     {
-        $user = Auth::user(); // Get the logged-in user
-
-        // Check if user has any bookings
-        // $hasBooked = $user->bookings()->exists();
-
-        // Pass the result to the view
-        // return view('user.Dashboard', compact('hasBooked'));
+        $user = Auth::user(); 
         return view('user.Dashboard');
     }
 
@@ -35,7 +29,7 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         return view('user.profile', compact('user'));
-        // return view('user.profile');
+       
     }
 
     public function availableVehicles()

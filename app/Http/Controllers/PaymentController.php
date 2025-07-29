@@ -14,37 +14,37 @@ use App\Models\Brand;
 class PaymentController extends Controller
 {
     public function initiatePayment(Request $request)
-{
+    {
 
 
-    $bookingData = Session::get('booking_data');
-    // dd($bookingData);
-    if (!$bookingData) {
-        return redirect()->route('payment')->with('error', 'Booking information is missing.');
+        $bookingData = Session::get('booking_data');
+        // dd($bookingData);
+        if (!$bookingData) {
+            return redirect()->route('payment')->with('error', 'Booking information is missing.');
+        }
+
+        $brand = Brand::findOrFail($bookingData['vehicleModel']);
+
+        $payload = [
+            'return_url' => url('/api/verify-payment'),
+            'website_url' => config('payment.khalti.website_url'),
+            'amount' =>100, // paisa
+            'purchase_order_id' => uniqid(),
+            'purchase_order_name' => $brand->brand_name,
+            'customer_info' => [
+                'name' => $bookingData['fullname'],
+                'email' => $bookingData['email'],
+                'phone' => $bookingData['phone'],
+            ]
+        ];
+
+        $response = Http::withHeaders([
+            'Authorization' => 'key ' . config('payment.khalti.secret_key'),
+            'Accept' => 'application/json',
+        ])->post(config('payment.khalti.base_url') . '/api/v2/epayment/initiate/', $payload)->throw();
+
+        return redirect()->away($response['payment_url']);
     }
-
-    $brand = Brand::findOrFail($bookingData['vehicleModel']);  // make sure keys match
-
-    $payload = [
-        'return_url' => url('/api/verify-payment'),
-        'website_url' => config('payment.khalti.website_url'),
-        'amount' =>100, // paisa
-        'purchase_order_id' => uniqid(),
-        'purchase_order_name' => $brand->brand_name,
-        'customer_info' => [
-            'name' => $bookingData['fullname'],
-            'email' => $bookingData['email'],
-            'phone' => $bookingData['phone'],
-        ]
-    ];
-
-    $response = Http::withHeaders([
-        'Authorization' => 'key ' . config('payment.khalti.secret_key'),
-        'Accept' => 'application/json',
-    ])->post(config('payment.khalti.base_url') . '/api/v2/epayment/initiate/', $payload)->throw();
-
-    return redirect()->away($response['payment_url']);
-}
 
 
     public function verifyPayment(Request $request)
@@ -98,7 +98,7 @@ class PaymentController extends Controller
                 $brand->save();
             }
 
-            // ✅ Auto update expired bookings here
+            //Auto update expired bookings here
             $expiredBookings = Booking::where('status', 'booked')
                 ->where('returnDate', '<', Carbon::now())
                 ->get();

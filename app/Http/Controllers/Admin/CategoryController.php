@@ -48,7 +48,6 @@ class CategoryController extends Controller
 
     //Upate category ko lagi
     public function edit($id) {
-        // $categories = Category:: all();
         $category = Category::findOrFail($id);
         return view('admin.category.update', compact('category'));
     }
@@ -75,12 +74,5 @@ class CategoryController extends Controller
         return redirect()->route('admin.category.view')->with('success', 'Category deleted successfully.');
     }
 
-    // public function showVehicles($slug)
-    // {
-    //     $category = Category::where('slug', $slug)->firstOrFail();
-    //     $vehicles = Vehicle::where('category_id', $category->id)->get();
-
-    //     return view('vehicles.category', compact('category', 'vehicles'));
-    // }
     
 }

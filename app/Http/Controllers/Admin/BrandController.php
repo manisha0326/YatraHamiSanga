@@ -81,7 +81,6 @@ class BrandController extends Controller
         $brand->brand_name = $request->brand_name;
         $brand->slug = Str::slug($request->brand_name);
         $brand->category_id = $request->category_id;
-        // $brand->image = $imageName;
         $brand->price = $request->price;
         $brand->description = $request->description;
 

@@ -26,23 +26,25 @@ class UserSeeder extends Seeder
             'contact' => '9808540462',
             'password' => Hash::make('password'),
         ]);
-        // User::create([
-        //     'fullname' => 'Reeja Maharjan',
-        //     'email' => 'reeja.maharjan023@apexcollege.edu.np',
-        //     'role' => 'admin',
-        //     'address' => 'ktm',
-        //     'dob' => '',
-        //     'gender' => 'female',
-        //     'contact' => '9808540462',
-        // ]);
-        // User::create([
-        //     'fullname' => 'Shristi Aryal',
-        //     'email' => 'shristi.aryal023@apexcollege.edu.np',
-        //     'role' => 'admin',
-        //     'address' => 'ktm',
-        //     'dob' => '',
-        //     'gender' => 'female',
-        //     'contact' => '9808540462',
-        // ]);
+        User::create([
+            'fullname' => 'Reeja Maharjan',
+            'email' => 'reeja.maharjan023@apexcollege.edu.np',
+            'role' => 'admin',
+            'address' => 'ktm',
+            'dob' => '2003-08-11',
+            'gender' => 'female',
+            'contact' => '9808540462',
+            'password' => Hash::make('password'),
+        ]);
+        User::create([
+            'fullname' => 'Shristi Aryal',
+            'email' => 'shristi.aryal023@apexcollege.edu.np',
+            'role' => 'admin',
+            'address' => 'ktm',
+            'dob' => '2004-09-29',
+            'gender' => 'female',
+            'contact' => '9808540462',
+            'password' => Hash::make('password'),
+        ]);
     }
 }
