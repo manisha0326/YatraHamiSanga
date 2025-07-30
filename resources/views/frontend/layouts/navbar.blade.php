@@ -18,8 +18,8 @@
                         <div class="mega-column">
                             <h4>Two Wheelers</h4>
                             @foreach ($categories as $category)
-                                @if (in_array(strtolower($category->category_name), ['bike', 'scooter']))
-                                    <a href="{{ url('/rental/' . strtolower($category->slug ?? $category->category_name)) }}">
+                                @if (in_array($category->slug, ['bike', 'scooter']))
+                                    <a href="{{ url('/rental/' . $category->slug) }}">
                                         {{ $category->category_name }}
                                     </a>
                                 @endif
@@ -29,8 +29,8 @@
                         <div class="mega-column">
                             <h4>Four Wheelers</h4>
                             @foreach ($categories as $category)
-                                @if (!in_array(strtolower($category->category_name), ['bike', 'scooter']))
-                                    <a href="{{ url('/rental/' . strtolower($category->slug ?? $category->category_name)) }}">
+                                @if (!in_array($category->slug, ['bike', 'scooter']))
+                                    <a href="{{ url('/rental/' . $category->slug) }}">
                                         {{ $category->category_name }}
                                     </a>
                                 @endif
@@ -66,7 +66,7 @@
                     // Blade-generated routes from categories
                     const routes = {
                         @foreach ($categories as $category)
-                            "{{ strtolower($category->category_name) }}": "{{ url('/rental/' . $category->slug) }}",
+                            "{{ $category->slug }}": "{{ url('/rental/' . $category->slug) }}",
                         @endforeach
                     };
 

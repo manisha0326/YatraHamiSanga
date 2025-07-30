@@ -19,7 +19,6 @@
                     <div>
                         {!! $brand->description !!}
                     </div>
-
                 </div>
             </div>
 

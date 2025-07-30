@@ -1,4 +1,33 @@
-<!DOCTYPE html>
+@extends('user.layouts.app')
+
+@section('userContent')
+<div class="popup" 
+        style=" width: 90%;
+         max-width: 460px; 
+         height: 250px;
+         padding: 30px 20px;
+         background-color: rgba(34, 165, 63, 0.1); 
+         border: 3px solid #22A53F;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            margin-left: 345px;
+            margin-top:100px;">
+        <h1 style="color: #22A53F;font-size: 28px; margin-bottom: 10px;">PAYMENT SUCCESSFUL</h1>
+        <p style="font-size: 18px; margin: 8px 0; color: #333;">Thank you! We've received your payment...</p>
+        <div class="details" style="margin-top: 20px;text-align: left; padding-left: 30px;" >
+             
+            <p style="font-size: 16px;"><strong>Booking ID:</strong> {{ $data['purchase_order_id'] ?? 'N/A' }}</p>
+            <p style="font-size: 16px;"><strong>Amount:</strong> Rs. {{ $bookingData['amount'] }}</p>
+            <p style="font-size: 16px;"><strong>User Name:</strong> {{ $bookingData['user']['fullname'] ?? 'User' }}</p>
+            
+        </div>
+    </div>
+
+@endsection
+
+
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -52,27 +81,25 @@
     </style>
 </head>
 <body>
-    <div class="popup">
-        <h1>PAYMENT SUCCESSFUL</h1>
-        <p>Thank you! We've received your payment...</p>
-        <div class="details">
+    <div class="popup" 
+        style=" width: 90%;
+         max-width: 460px; 
+         height: 250px;
+         padding: 30px 20px;
+         background-color: rgba(34, 165, 63, 0.1); 
+         border: 3px solid #22A53F;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            text-align: center;">
+        <h1 style="color: #22A53F;font-size: 28px; margin-bottom: 10px;">PAYMENT SUCCESSFUL</h1>
+        <p style="font-size: 18px; margin: 8px 0; color: #333;">Thank you! We've received your payment...</p>
+        <div class="details" style="margin-top: 20px;text-align: left; padding-left: 30px;" >
              
-            <p><strong>Booking ID:</strong> {{ $data['purchase_order_id'] ?? 'N/A' }}</p>
-            <p><strong>Amount:</strong> Rs. {{ $bookingData['amount'] }}</p>
-            <p><strong>User Name:</strong> {{ $bookingData['user']['fullname'] ?? 'User' }}</p>
+            <p style="font-size: 16px;"><strong>Booking ID:</strong> {{ $data['purchase_order_id'] ?? 'N/A' }}</p>
+            <p style="font-size: 16px;"><strong>Amount:</strong> Rs. {{ $bookingData['amount'] }}</p>
+            <p style="font-size: 16px;"><strong>User Name:</strong> {{ $bookingData['user']['fullname'] ?? 'User' }}</p>
             
-            {{-- <div class="container" style="margin-top: 98px">
-                <h2> Payment Successful</h2>
-                <p>Thank you for your payment, {{ $data['user']['name'] ?? 'User' }}.</p>
-                <p><strong>Order ID:</strong> {{ $data['purchase_order_id'] }}</p>
-                <p><strong>Amount:</strong> Rs. {{ $data['amount'] / 100 }}</p>
-                <p>Thank you for your payment, ABCDE.</p>
-                <p><strong>Order ID:</strong> 11</p>
-                <p><strong>Amount:</strong> Rs. 250</p>
-            </div> --}}
-
-
         </div>
     </div>
 </body>
-</html>
+</html> --}}

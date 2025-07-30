@@ -14,8 +14,7 @@
                         <i class="ion ion-stats-bars"></i>
                     </div>
                     <a href="{{ route('user.bookingHistory') }}" class="small-box-footer"
-                        style="text-decoration:none;margin-top: 20px;color:white;">More info <i
-                            class="fas fa-arrow-circle-right"></i></a>
+                        style="text-decoration:none;margin-top: 20px;color:white;">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 

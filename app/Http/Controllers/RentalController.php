@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class RentalController extends Controller
 {
+    // $slug=null assign gareko ho
     public function index($slug = null)
     {
     

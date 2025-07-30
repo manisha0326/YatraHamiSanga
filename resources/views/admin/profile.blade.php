@@ -16,7 +16,7 @@
                                 style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%;margin-top:80px; " />
 
                             {{-- Upload Form --}}
-                            <form id="uploadForm" action="{{ route('admin.profile') }}" method="POST"
+                            <form id="uploadForm" action="{{ route('profile.upload') }}" method="POST"
                                 enctype="multipart/form-data" class="my-3">
                                 @csrf
 

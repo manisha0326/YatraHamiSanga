@@ -17,7 +17,7 @@
                             />
 
                             {{-- Upload Form --}}
-                            <form id="uploadForm" action="{{ route('user.profile') }}" method="POST" enctype="multipart/form-data" class="my-3">
+                            <form id="uploadForm" action="{{ route('profile.upload') }}" method="POST" enctype="multipart/form-data" class="my-3">
                                 @csrf
 
                                 <input type="file" name="profile_image" id="uploadImage" class="d-none" accept="image/*" onchange="document.getElementById('uploadForm').submit();">

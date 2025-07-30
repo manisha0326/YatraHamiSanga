@@ -27,7 +27,7 @@ class BookingController extends Controller
         $validator = Validator::make($request->all(), [
             'fullname' => 'required|string|max:255|regex:/^[A-Za-z\s]+$/',
             'email' => 'required|email',
-            'phoneNumber' => 'required|numeric',
+            'phoneNumber' => 'required|digits:10',
             'vehicleType' => 'required|exists:categories,id',
             'vehicleModel' => 'required|exists:brands,id', 
             'bookingType' => 'required|in:perDay,perHour',

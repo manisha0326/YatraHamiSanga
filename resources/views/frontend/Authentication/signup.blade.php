@@ -89,14 +89,14 @@
                         <div class="mb-3">
                             <label for="Contact" class="form-label">Contact Number</label>
                             <input type="text" value="{{ old('contact') }}"
-                                class="form-control @error('dob') is-invalid @enderror" id="contact" name="contact" />
+                                class="form-control @error('contact') is-invalid @enderror" id="contact" name="contact" />
                             @error('contact')
                                 <p class="invalid-feedback">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="Password" class="form-label">Password </label>
-                            <input type="password" class="form-control @error('dob') is-invalid @enderror" id="password"
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
                                 name="password" />
                             @error('password')
                                 <p class="invalid-feedback">{{ $message }}</p>

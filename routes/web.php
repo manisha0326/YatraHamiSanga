@@ -11,7 +11,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\BookingController;
-use App\Http\Controllers\EsewaController;
 use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\PaymentController;
 use App\Models\Category;
@@ -34,9 +33,9 @@ use App\Models\Contact;
 
 
 // Only for guests (unauthenticated users)
-Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthenticationController::class, 'loginAuthentication'])->name('login');
-});
+// Route::middleware('guest')->group(function () {
+//     Route::get('/login', [AuthenticationController::class, 'loginAuthentication'])->name('login');
+// });
 
 
 // pages haru ko
@@ -45,7 +44,7 @@ Route::get('/', [HomeController::class, 'rentalPage'])->name('home');
 Route::view('/aboutus','frontend.pages.aboutus')->name('aboutus');
 Route::view('/contactus','frontend.pages.contactus')->name('contactus');
 Route::view('/faqs', 'frontend.pages.faqs')->name('faqs');
-
+Route::post('/profile/upload', [ProfileController::class, 'upload'])->name('profile.upload');
 Route::view('/terms', 'frontend.pages.terms')->name('terms');
 Route::get('/payment', [BookingController::class, 'index'])->name('payment');
 Route::get('/initiate-payment', [PaymentController::class, 'initiatePayment'])->name('initiate.payment');
@@ -77,36 +76,17 @@ Route::post('/logout', [AuthenticationController::class, 'logout'])->name('logou
 
 Route::post('/contactus', [ContactusController::class, 'contactUs'])->name('contactus');
 
-
-Route::get('/user/just', function () {
-    return view('user.just');
-});
-
-
-// for the category
-// Route::get('/rental/{vehicle}', function ($vehicle) {
-//     $allowedVehicles = ['scooter', 'bike', 'car', 'scropio', 'hiace'];
-
-//     if (in_array($vehicle, $allowedVehicles)) {
-//         return view("frontend.Rental.$vehicle");
-//     }
-
-//     abort(404);
-// });
-
 // rental ko routes haru ho
-Route::view('/description/Apache', 'frontend.Rental.Descriptionpage.Apache')->name('Rental.Apache');
 
 Route::get('/rental/description/{slug}', [RentalController::class, 'showDescription'])->name('rental.description');
 Route::get('/rental-ajax', [RentalController::class, 'ajaxFilter'])->name('rental.ajax');
 Route::get('/rental/{slug?}', [RentalController::class, 'index'])->name('rental.index');
 
 
-
 // Only for authenticated users
 Route::middleware('auth')->group(function () {
     Route::get('/user/dashboard', [DashboardController::class, 'userDashboard'])->name('user.dashboard');
-    Route::middleware(['auth'])->get('/user/profile', [DashboardController::class, 'profileUser'])->name('user.profile');
+    Route::get('/user/profile', [DashboardController::class, 'profileUser'])->name('user.profile');
     Route::get('/user/availableVehicles', [DashboardController::class, 'availableVehicles'])->name('user.AvailableVehicles');
     
     Route::get('/help', [HelpController::class, 'index'])->name('user.help');
@@ -117,7 +97,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/cancelvehicle', [BookingController::class, 'cancelledList'])->name('user.Cancelvehicle');
     Route::get('/user/bookings', [BookingController::class, 'userBookings'])->name('user.bookings');
     Route::get('/user/booking-history', [BookingController::class, 'bookingHistory'])->name('user.bookingHistory');
-    
 });
 
 

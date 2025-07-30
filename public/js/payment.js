@@ -27,11 +27,6 @@ function loadModels(categoryId) {
         });
 }
 
-
-
-
-
-
       function showPaymentModal() {
         var modal = new bootstrap.Modal(
           document.getElementById("paymentModal")

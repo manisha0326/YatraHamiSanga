@@ -60,7 +60,7 @@
               </li>
             </ul>
 
-            <ul class="nav sidebar-menu flex-column mb-2" style="margin-top:480px">
+            <ul class="nav sidebar-menu flex-column mb-2" style="margin-top:380px">
               <li class="nav-item">
                 <a href="{{ route('user.profile') }}" class="nav-link">
                   <i class="nav-icon bi bi-person-circle"></i>

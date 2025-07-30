@@ -16,7 +16,7 @@ const reviews = document.querySelectorAll('.review');
     document.getElementById('perDayBlock').classList.remove('d-none');
     document.getElementById('perHourBlock').classList.add('d-none');
 
-    // Toggle active button styles
+    // for active button styles
     const dayBtns = document.querySelectorAll('#perDayBlock button');
     const hourBtns = document.querySelectorAll('#perHourBlock button');
     
@@ -31,7 +31,7 @@ const reviews = document.querySelectorAll('.review');
     document.getElementById('perHourBlock').classList.remove('d-none');
     document.getElementById('perDayBlock').classList.add('d-none');
 
-    // Toggle active button styles
+    // for active button styles
     const dayBtns = document.querySelectorAll('#perDayBlock button');
     const hourBtns = document.querySelectorAll('#perHourBlock button');
     

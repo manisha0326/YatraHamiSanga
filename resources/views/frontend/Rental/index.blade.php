@@ -50,7 +50,7 @@
         </div>
     </section>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     <script>
         function checkOnlyOne(checkbox) {
             const checkboxes = document.getElementsByName("option");
@@ -89,7 +89,6 @@
                 }
             });
         }
-
 
         window.addEventListener('popstate', function(e) {
             location.reload(); // Reload full page if navigating back

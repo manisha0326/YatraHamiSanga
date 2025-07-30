@@ -5,18 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class ContactusController extends Controller
 {
 
-    
-
     public function contactUs(Request $request){
+
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Please log in to contact us.');
+        }
+
         $validator = Validator::make($request->all(),[
             'fullname' => 'required|string|max:255|regex:/^[A-Za-z\s]+$/',
             'email' => 'required|email',
-            'contactNumber' => 'required|numeric',
+            'contactNumber' => 'required|digits:10',
             'message' => 'required|string|max:100',
         ]);
         if ($validator->passes()){

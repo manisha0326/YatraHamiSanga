@@ -31,11 +31,8 @@
     <link rel="stylesheet" href="{{ asset('css/Authenication/forgetPassword.css') }}">
     <link rel="stylesheet" href="{{ asset('css/Authenication/verifyOTP.css') }}">
     <link rel="stylesheet" href="{{ asset('css/Authenication/changePassword.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/Rental/Sooter.css') }}">
+   
     <link rel="stylesheet" href="{{ asset('css/Rental/Bike.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/Rental/Car.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/Rental/Scriopo.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/Rental/Hiace.css') }}">
     <link rel="stylesheet" href="{{ asset('css/Rental/Descriptionpage/Apache.css') }}">
     
     {{-- <link rel="stylesheet" href="{{ asset('css/login.css') }}">? --}}
@@ -44,7 +41,7 @@
     <script defer src="{{ asset('js/payment.js') }}"></script>
     <script defer src="{{ asset('js/DescriptionPage.js') }}"></script>
     <script defer src="{{ asset('js/Authenication/Verfiyotp.js') }}"></script>
-    {{-- <script defer src="{{ asset('js/search.js') }}"></script> --}}
+    {{--  <script defer src="{{ asset('js/search.js') }}"></script> --}}
     <script defer src="{{ asset('js/navafter.js') }}"></script>
     <script defer src="{{ asset('js/alert.js') }}"></script>
     <script

@@ -20,7 +20,7 @@ class AuthenticationController extends Controller
             'address' => 'required|string|max:255',
             'dob' => 'required|date|before:today',
             'gender' => 'required|in:male,female,other',
-            'contact' => 'required|numeric',
+            'contact' => 'required|digits:10',
             'password' => 'required|string|min:8',
             'terms' => 'accepted',
         ]);
@@ -78,19 +78,35 @@ class AuthenticationController extends Controller
         $validator = Validator::make($request->all(),[
             'email' => 'required|email'
         ]);
-        $otp = rand(100000, 999999); 
 
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        //user ko email check garxa database ma user table ma
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return back()->with('error', 'This email is not registered.');
+        }
+
+        $otp = rand(100000, 999999); 
         // Ssession ma otp save 
         Session::put('otp', $otp);
         Session::put('otp_email', $request->email);
        
         // send otp via email
-        Mail::raw("Your OTP is: $otp", function ($message) use ($request) {
-            $message->to($request->email)
-                    ->subject('Password Reset OTP');
-        });
+        try {
+            Mail::raw("Your OTP is: $otp", function ($message) use ($request) {
+                $message->to($request->email)
+                        ->subject('Password Reset OTP');
+            });
 
-        return redirect()->route('verifyOTPForm')->with('success', 'OTP sent to your email.');
+            return redirect()->route('verifyOTPForm')->with('success', 'OTP sent to your email.');
+
+        } catch (\Exception $e) {
+            return back()->with('error', 'Enter a valid email address.');
+        }
         
     }
 
@@ -126,12 +142,17 @@ class AuthenticationController extends Controller
        session(['otp' => $otp, 'reset_email' => $request->email]);
 
         // Send email
-        Mail::raw("Your new OTP is: $otp", function ($message) use ($email) {
-            $message->to($email)
-                    ->subject('Resend OTP');
-        });
+        try{
+            Mail::raw("Your new OTP is: $otp", function ($message) use ($email) {
+                $message->to($email)
+                        ->subject('Resend OTP');
+            });
 
-        return redirect()->back()->with('success', 'A new OTP has been sent to your email.');
+            return redirect()->back()->with('success', 'A new OTP has been sent to your email.');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Enter a valid email address.');
+        }
+        
     }
 
     //changePassword ko function
