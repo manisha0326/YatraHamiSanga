@@ -103,10 +103,19 @@
         </div>
         <div class="#">
             <div class="image">
-                <a
+                <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.5933813137085!2d85.33539907425379!3d27.698959725863535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199940d81663%3A0xaf36b9b58903050f!2sApex%20College!5e0!3m2!1sen!2snp!4v1708143351555!5m2!1sen!2snp"
+            width="100%"
+            height="500px"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+                {{-- <a
                     href="https://www.google.com/maps/place/New+Baneshwor,+Kathmandu+44600/@27.6947545,85.2986184,13z/data=!4m6!3m5!1s0x39eb199a06c2eaf9:0xc5670a9173e161de!8m2!3d27.6915196!4d85.3420486!16s%2Fg%2F1v3dqjnc?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D">
                     <img src="../image/map.svg" alt="" />
-                </a>
+                </a> --}}
             </div>
         </div>
     </section>

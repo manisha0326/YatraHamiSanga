@@ -35,7 +35,7 @@
 
 
         <div class="col-lg-4 col-md-6 mb-4">
-            <div class="small-box bg-warning" style="height:162px">
+            <div class="small-box bg-danger" style="height:162px">
                 <div class="inner">
                     <h3 style="color: white;text-align:center;margin-top:40px">Customer's Query</h3>
                 </div>
@@ -43,6 +43,20 @@
                     <i class="ion ion-pie-graph"></i>
                 </div>
                 <a href="{{ route('admin.customerQuery') }} " class="small-box-footer"
+                    style="text-decoration:none;margin-top: 20px;color:white;">More info <i
+                        class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="small-box bg-warning" style="height:162px">
+                <div class="inner">
+                    <h3 style="color: white;text-align:center;margin-top:40px">Booking History</h3>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="{{ route('user.bookingHistory') }} " class="small-box-footer"
                     style="text-decoration:none;margin-top: 20px;color:white;">More info <i
                         class="fas fa-arrow-circle-right"></i></a>
             </div>

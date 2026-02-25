@@ -30,14 +30,6 @@ use App\Models\Contact;
 */
 // routes/web.php
 
-
-
-// Only for guests (unauthenticated users)
-// Route::middleware('guest')->group(function () {
-//     Route::get('/login', [AuthenticationController::class, 'loginAuthentication'])->name('login');
-// });
-
-
 // pages haru ko
 
 Route::get('/', [HomeController::class, 'rentalPage'])->name('home');
@@ -77,11 +69,9 @@ Route::post('/logout', [AuthenticationController::class, 'logout'])->name('logou
 Route::post('/contactus', [ContactusController::class, 'contactUs'])->name('contactus');
 
 // rental ko routes haru ho
-
 Route::get('/rental/description/{slug}', [RentalController::class, 'showDescription'])->name('rental.description');
 Route::get('/rental-ajax', [RentalController::class, 'ajaxFilter'])->name('rental.ajax');
 Route::get('/rental/{slug?}', [RentalController::class, 'index'])->name('rental.index');
-
 
 // Only for authenticated users
 Route::middleware('auth')->group(function () {

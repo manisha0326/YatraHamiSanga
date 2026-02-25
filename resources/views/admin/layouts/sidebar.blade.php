@@ -61,6 +61,13 @@
                         <p>User Details</p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('user.bookingHistory') }}" class="nav-link">
+                        <i class="nav-icon bi bi-people"></i>
+                        <p>Booking History</p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

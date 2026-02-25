@@ -5,12 +5,16 @@
           <a href="route('/')" class="brand-link" >
             <!--begin::Brand Image-->
             <div style="margin-bottom: 10px;">
-              <img
+              <a href="/">
+              
+                <img
                 src="{{ asset('image/dashboardlogo.png') }}"
                 alt="AdminLTE Logo"
                 class="brand-image opacity-75 shadow"
                 style="width: 140px; max-height: 100px;"
               />
+              </a>
+              
             </div>
             <!--end::Brand Image-->
             

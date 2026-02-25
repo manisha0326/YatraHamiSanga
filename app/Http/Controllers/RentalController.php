@@ -52,6 +52,5 @@ class RentalController extends Controller
         $brand = Brand::where('slug', $slug)->firstOrFail();
         return view('frontend.Rental.description', compact('brand'));
     }
-
-
 }
+
