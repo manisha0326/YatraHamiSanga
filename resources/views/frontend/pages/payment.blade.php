@@ -215,92 +215,56 @@
 @push('scripts')
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const perDayRate = {{ $brand->price }};
-            const perHourRate = perDayRate / 12;
+            const brandPrices = @json($brands->pluck('price', 'id'));
+            const modelSelect = document.getElementById('dynamicModels');
 
             const pickupDateInput = document.querySelector('[name="pickupDate"]');
             const returnDateInput = document.querySelector('[name="returnDate"]');
             const hourInput = document.getElementById('hour');
             const amountInput = document.getElementById('amount');
-            const bookingTypeSelect = document.getElementById("bookingType");
-            const perDayBlock = document.getElementById('perDayBlock');
-            const perHourBlock = document.getElementById('perHourBlock');
 
-            if (pickupDateInput) pickupDateInput.addEventListener('change', calculatePerDayAmount);
-            if (returnDateInput) returnDateInput.addEventListener('change', calculatePerDayAmount);
+            function getPerDayRate() {
+                return Number(brandPrices[modelSelect.value] ?? 0);
+            }
 
             function calculatePerDayAmount() {
+                const perDayRate = getPerDayRate();
+
+                if (!perDayRate) {
+                    amountInput.value = '';
+                    return;
+                }
+
                 const pickup = new Date(pickupDateInput.value);
                 const ret = new Date(returnDateInput.value);
 
-                if (pickup && ret && ret >= pickup) {
+                if (pickupDateInput.value && returnDateInput.value && ret >= pickup) {
                     const diffTime = ret.getTime() - pickup.getTime();
-                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) || 1;
-                    const total = diffDays * perDayRate;
-                    amountInput.value = total.toFixed(2);
+                    const days = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) || 1;
+
+                    amountInput.value = (days * perDayRate).toFixed(2);
                 } else {
                     amountInput.value = '';
                 }
             }
 
-            if (hourInput) {
-                hourInput.addEventListener('input', function() {
-                    const hours = parseInt(this.value);
-                    if (hours >= 1 && hours <= 12) {
-                        const total = hours * perHourRate;
-                        amountInput.value = total.toFixed(2);
-                    } else {
-                        amountInput.value = '';
-                    }
-                });
-            }
+            function calculatePerHourAmount() {
+                const perDayRate = getPerDayRate();
+                const hours = Number(hourInput.value);
 
-            function handleBookingTypeChange(select) {
-                const value = select.value;
-                if (value === 'perDay') {
-                    showPerDay();
+                if (perDayRate && hours >= 1 && hours <= 12) {
+                    amountInput.value = ((hours * perDayRate) / 12).toFixed(2);
                 } else {
-                    showPerHour();
+                    amountInput.value = '';
                 }
             }
 
-            function showPerDay() {
-                if (perDayBlock && perHourBlock) {
-                    perDayBlock.classList.remove('d-none');
-                    perHourBlock.classList.add('d-none');
-                }
-            }
-
-            function showPerHour() {
-                if (perDayBlock && perHourBlock) {
-                    perHourBlock.classList.remove('d-none');
-                    perDayBlock.classList.add('d-none');
-                }
-            }
-
-            if (bookingTypeSelect) {
-                bookingTypeSelect.addEventListener('change', function() {
-                    handleBookingTypeChange(this);
-                });
-
-                // Restore saved data from localStorage
-                const data = JSON.parse(localStorage.getItem("bookingData"));
-                if (data) {
-                    bookingTypeSelect.value = data.bookingType;
-                    handleBookingTypeChange(bookingTypeSelect);
-
-                    if (data.bookingType === "perDay") {
-                        pickupDateInput.value = data.pickupDate;
-                        returnDateInput.value = data.returnDate;
-                    } else {
-                        hourInput.value = data.hour;
-                    }
-
-                    amountInput.value = data.amount;
-
-                    localStorage.removeItem("bookingData");
-                }
-            }
+            pickupDateInput.addEventListener('change', calculatePerDayAmount);
+            returnDateInput.addEventListener('change', calculatePerDayAmount);
+            hourInput.addEventListener('input', calculatePerHourAmount);
+            modelSelect.addEventListener('change', function() {
+                amountInput.value = '';
+            });
         });
     </script>
 @endpush

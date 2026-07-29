@@ -96,8 +96,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="Password" class="form-label">Password </label>
-                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
-                                name="password" />
+                            <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                id="password" name="password" />
                             @error('password')
                                 <p class="invalid-feedback">{{ $message }}</p>
                             @enderror

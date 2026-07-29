@@ -38,8 +38,9 @@
                                 <p class="invalid-feedback">{{ $message }}</p>
                             @enderror
                         </div>
-                        <button type="submit" class="btn" name="sendOtp"
-                            style="
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                            <button type="submit" class="btn" name="sendOtp"
+                                style="
                                 background-color: #262586;
                                 color: white;
                                 font-family: poppins;
@@ -48,8 +49,12 @@
                                 font-size: 16px;
                                 margin-top: 10px;
                               ">
-                            Send OTP
-                        </button>
+                                Send OTP
+                            </button>
+                            <a style="text-decoration: none; font-family: poppins;" href="{{ route('login') }}"><span
+                                    style="color: #262586; font-weight: 400">Back</span></a>
+                        </div>
+
 
                     </form>
                 </div>
